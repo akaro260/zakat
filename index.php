@@ -108,6 +108,10 @@ body {
   border-radius: 20px;
   transition: 0.3s ease;
   color: #08b0ce;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-card h6 {
@@ -116,9 +120,10 @@ body {
   margin: 15px 0;
 }
 
+
+
 .hero-card p {
-  font-size: 13px;
-  color: #ccefff;
+  flex-grow: 1;
 }
 
 .hero-card .icon {
@@ -158,10 +163,23 @@ body {
   color: #08b0ce;
   border: none;
   border-radius: 20px;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,255,255,0.25);
+}
+
+.statistik-card .card-footer {
+  background: transparent;
+  border-top: 1px solid rgba(0,255,255,0.1);
 }
 
 .solo {
   background: rgba(0, 20, 40, 0.8);
+  
+
 }
 
 .statistik-card .card-footer {
@@ -211,41 +229,41 @@ body {
     </a>
 
     <!-- CARD DI DALAM HERO -->
-    <div class="row g-4 justify-content-center">
+<div class="row g-4 justify-content-center align-items-stretch">
 
-      <div class="col-md-6 col-lg-3">
-        <div class="hero-card p-4">
-          <i class="bi bi-easel icon"></i>
-          <h6>Pengertian</h6>
-          <p>Zakat wajib bagi Muslim yang mampu sebelum Idulfitri.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="hero-card p-4">
-          <i class="fa-solid fa-user icon"></i>
-          <h6>Siapa Wajib ?</h6>
-          <p>Muslim yang memiliki kelebihan makanan.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="hero-card p-4">
-          <i class="fa-solid fa-scale-balanced icon"></i>
-          <h6>Besar Zakat</h6>
-          <p>± 2,5 – 3 kg beras atau setara uang.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="hero-card p-4">
-          <i class="fa-regular fa-clock icon"></i>
-          <h6>Waktu</h6>
-          <p>Sebelum shalat Idulfitri.</p>
-        </div>
-      </div>
-
+  <div class="col-md-6 col-lg-3 d-flex">
+    <div class="hero-card p-4 w-100 text-center">
+      <i class="bi bi-easel icon"></i>
+      <h6>Pengertian</h6>
+      <p>Zakat wajib bagi Muslim yang mampu sebelum Idulfitri.</p>
     </div>
+  </div>
+
+  <div class="col-md-6 col-lg-3 d-flex">
+    <div class="hero-card p-4 w-100 text-center">
+      <i class="fa-solid fa-user icon"></i>
+      <h6>Siapa Wajib?</h6>
+      <p>Muslim yang memiliki kelebihan makanan.</p>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-lg-3 d-flex">
+    <div class="hero-card p-4 w-100 text-center">
+      <i class="fa-solid fa-scale-balanced icon"></i>
+      <h6>Besar Zakat</h6>
+      <p>± 2,5 – 3 kg beras atau setara uang.</p>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-lg-3 d-flex">
+    <div class="hero-card p-4 w-100 text-center">
+      <i class="fa-regular fa-clock icon"></i>
+      <h6>Waktu</h6>
+      <p>Sebelum shalat Idulfitri.</p>
+    </div>
+  </div>
+
+</div>
 
   </div>
 
@@ -261,9 +279,9 @@ body {
         Zakat yang Terkumpul
       </h2>
       
-      <div class="row d-flex justify-content-center align-items-center g-4 statistik-card h-100 ">
-                    <div class="col-xl-4 col-md-6 ">
-                        <div class="card  mb-4 solo">
+      <div class="row d-flex justify-content-center align-items-center g-4 statistik-card h-100 align-items-stretch">
+                    <div class="col-xl-4 col-md-6 d-flex">
+                        <div class="card  mb-4 solo w-100 h-100">
                             <?php
                             $hitung = mysqli_query($koneksi, "SELECT SUM(jumlah_rupiah) AS total FROM tbl_zakat");
                             $data = mysqli_fetch_assoc($hitung);
@@ -273,12 +291,12 @@ body {
                                     class="fa-solid fa-sack-dollar"></i></div>
                             <div class="card-footer d-flex ">
                                 <p class="fs-5  mt-2 text-white ">Rp <?= number_format($total, 0, ',', '.'); ?></p>
-                                <div class="small "><i class="fas fa-angle-right"></i></div>
+                                
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="card  mb-4 solo">
+                    <div class="col-xl-4 col-md-6 d-flex">
+                        <div class="card  mb-4 solo w-100 h-100">
                             <?php
                             $hitung = mysqli_query($koneksi, "SELECT SUM(jumlah_beras) AS beras FROM tbl_zakat");
                             $data = mysqli_fetch_assoc($hitung);
@@ -288,12 +306,12 @@ body {
                                     class="fa-solid fa-bowl-rice"></i></div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <p class="fs-5  mt-2 text-white"><?= $beras ?> Kg </i></p>
-                                <div class="small "><i class="fas fa-angle-right"></i></div>
+                           
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="card  mb-4 solo">
+                    <div class="col-xl-4 col-md-6 d-flex">
+                        <div class="card  mb-4 solo w-100 h-100">
                             <?php
                             $hitung = mysqli_query($koneksi, "SELECT SUM(keterengan) AS orang FROM tbl_zakat");
                             $data = mysqli_fetch_assoc($hitung);
@@ -302,7 +320,7 @@ body {
                             <div class="card-body fs-4 ">Jumlah orang yang zakat &nbsp; <i class="fa-solid fa-user"></i></div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <p class="fs-5  mt-2 text-white"><?= number_format($orang, 0, ',', '.'); ?> Orang</p>
-                                <div class="small "><i class="fas fa-angle-right"></i></div>
+                      
                             </div>
                         </div>
                     </div>
