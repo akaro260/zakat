@@ -23,6 +23,7 @@ include "menu/koneksi.php";
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,6 +31,7 @@ include "menu/koneksi.php";
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="admin/assets/css/main.css">
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -44,77 +46,129 @@ include "menu/koneksi.php";
   ======================================================== -->
 </head>
 <style>
-  body{
-    background-color: rgb(2,4,19)  
-  }
-  .hero{
-    background-image: linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2, 5, 23, 0.84)), url(assets/img/hero-back.jpg);
-    width:100%;
-    height:100vh;
-    display:flex;
-    align-items:center;
-    background-size:cover;
-    background-position:center;
-    color:#fff;
-  }
-  .container thead tr th{
-    background-color: rgb(1, 4, 34);
-    color: #08b0ce;
-  }
-.card {
-  backdrop-filter: blur(6px);
+
+body {
+  background-color: rgb(2,4,19);
+  font-family: 'Poppins', sans-serif;
 }
 
-.table-hover tbody tr:hover {
-  background-color: rgba(0, 255, 255, 0.08);
+/* HERO */
+.hero {
+ background: linear-gradient(180deg, rgba(2,6,23,0.8), rgba(2,5,23,0.95)),
+              url('assets/img/hero-back.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #fff;
 }
+
 .hero h1 {
-  font-size: 64px;   /* gedein judul */
+  font-size: 64px;
   font-weight: 800;
 }
 
 .hero h1 span {
-  font-size: 48px;   /* gedein tulisan bawahnya */
+  font-size: 48px;
   color: #08b0ce;
 }
 
 .hero p {
-  font-size: 22px;   /* gedein paragraf */
-  margin-top: 20px;
+  font-size: 22px;
+  margin: 20px 0 30px;
+  color: #d1ecff;
 }
+
 .hero .butu {
-  font-size: 20px;      /* gedein tulisan */
-  padding: 14px 35px;   /* gedein tombol */
-  border-radius: 50px;  /* biar lebih modern */
+  background: #08b0ce;
+  color: #001a2e;
+  font-size: 20px;
+  padding: 14px 40px;
+  border-radius: 50px;
   font-weight: 600;
+  transition: 0.3s;
+  text-decoration: none;
 }
+
+.hero .butu:hover {
+  background: #00e1ff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,255,255,0.4);
+}
+
+
+
+
+.hero-card {
+  background: rgba(0, 20, 40, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  transition: 0.3s ease;
+  color: #08b0ce;
+}
+
+.hero-card h6 {
+  color: white;
+  font-weight: 600;
+  margin: 15px 0;
+}
+
+.hero-card p {
+  font-size: 13px;
+  color: #ccefff;
+}
+
+.hero-card .icon {
+  font-size: 32px;
+  color: #08b0ce;
+}
+
+.hero-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0,255,255,0.3);
+}
+/* TABLE */
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 255, 255, 0.08);
+}
+
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table thead th {
+  background-color: rgb(1, 4, 34);
+  color: #08b0ce;
+  border: none;
+}
+
+.table td, 
+.table th {
+  border-color: rgba(255,255,255,0.1);
+}
+
+
+/* CARD UMUM */
 .card {
   background: rgba(0, 20, 40, 0.8);
   color: #08b0ce;
   border: none;
   border-radius: 20px;
-
-    
 }
 
-
+.solo {
+  background: rgba(0, 20, 40, 0.8);
+}
 
 .statistik-card .card-footer {
   background: transparent;
   border-top: 1px solid rgba(0,255,255,0.1);
 }
-.table {
-  border-radius: 5px;
-  overflow: hidden;
-}
 
-.table thead th {
-  border: none;
-}
-
-.table td, .table th {
-  border-color: rgba(255,255,255,0.1);
-}
 </style>
 <body class="index-page">
 
@@ -137,21 +191,65 @@ include "menu/koneksi.php";
   <main class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section">
+ <section id="hero" class="hero">
 
-      <div class="container d-flex gap-2 justify-content-center align-items-center text-center position-relative" data-aos="zoom-out" >
-        <div>
-          <h1 style="font-weight: bold;" class="text-white">Zakat <br>
-          <span>Masjid Riyhadusshalihin</span></h1>
-          <p class="text-white">Yuk, tunaikan zakat sekarang juga untuk membersihkan harta dan menyucikan jiwa kita.</p>
-          
-          <a href="#about" class="btn-get-started scrollto butu">Get Started</a>
-          
+  <div class="container text-center">
+
+    <!-- Judul -->
+    <h1>
+      Zakat <br>
+      <span>Masjid Riyhadusshalihin</span>
+    </h1>
+
+    <p>
+      Yuk, tunaikan zakat sekarang juga untuk membersihkan harta
+      dan menyucikan jiwa kita.
+    </p>
+
+    <a href="#zakat" class="btn butu mb-5">
+      Tunaikan Sekarang
+    </a>
+
+    <!-- CARD DI DALAM HERO -->
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-6 col-lg-3">
+        <div class="hero-card p-4">
+          <i class="bi bi-easel icon"></i>
+          <h6>Pengertian</h6>
+          <p>Zakat wajib bagi Muslim yang mampu sebelum Idulfitri.</p>
         </div>
       </div>
 
-    </section><!-- /Hero Section -->
+      <div class="col-md-6 col-lg-3">
+        <div class="hero-card p-4">
+          <i class="fa-solid fa-user icon"></i>
+          <h6>Siapa Wajib ?</h6>
+          <p>Muslim yang memiliki kelebihan makanan.</p>
+        </div>
+      </div>
 
+      <div class="col-md-6 col-lg-3">
+        <div class="hero-card p-4">
+          <i class="fa-solid fa-scale-balanced icon"></i>
+          <h6>Besar Zakat</h6>
+          <p>± 2,5 – 3 kg beras atau setara uang.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="hero-card p-4">
+          <i class="fa-regular fa-clock icon"></i>
+          <h6>Waktu</h6>
+          <p>Sebelum shalat Idulfitri.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
     
   <!-- Featured Services Section -->
 <div class="container my-5">
@@ -279,6 +377,7 @@ include "menu/koneksi.php";
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  
 
 </body>
 
